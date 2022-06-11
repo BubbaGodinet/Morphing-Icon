@@ -17,7 +17,7 @@ gsap.registerPlugin(MorphSVGPlugin);
 
 function App() {
   useEffect(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
     //linkedin to instagram
     tl.to("#lini", {
       morphSVG: { shape: "#igbigdot", shapeIndex: 5 },
@@ -165,7 +165,8 @@ function App() {
           duration: 0.75
         },
         "<+=0"
-      );
+      )
+      .to({}, 1.5, {});
 
     return () => {
       tl.kill();
